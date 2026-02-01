@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Demi 💗</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      font-family: 'Poppins', system-ui, sans-serif;
+      background: linear-gradient(135deg, #ffd1dc, #ffe6ef);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.85);
+      backdrop-filter: blur(10px);
+      border-radius: 24px;
+      padding: 40px 30px;
+      max-width: 420px;
+      text-align: center;
+      box-shadow: 0 20px 40px rgba(255, 105, 135, 0.25);
+      animation: fadeIn 1.2s ease;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 2.4rem;
+      color: #ff4f81;
+    }
+
+    .name {
+      font-weight: 600;
+    }
+
+    p {
+      font-size: 1rem;
+      color: #444;
+      line-height: 1.6;
+      margin: 20px 0;
+    }
+
+    .quote {
+      font-style: italic;
+      color: #666;
+      margin: 25px 0;
+    }
+
+    .question {
+      font-size: 1.4rem;
+      color: #ff4f81;
+      margin: 30px 0 20px;
+    }
+
+    button {
+      border: none;
+      padding: 12px 22px;
+      margin: 8px;
+      border-radius: 999px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .yes {
+      background: #ff4f81;
+      color: white;
+    }
+
+    .yes:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 20px rgba(255,79,129,0.4);
+    }
+
+    .alt {
+      background: #ffe6ef;
+      color: #ff4f81;
+    }
+
+    .message {
+      display: none;
+      margin-top: 20px;
+      font-size: 1.1rem;
+      color: #ff4f81;
+      animation: fadeIn 0.8s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .heart {
+      position: absolute;
+      color: #ff4f81;
+      font-size: 18px;
+      animation: floatUp 6s linear infinite;
+      opacity: 0.6;
+    }
+
+    @keyframes floatUp {
+      from { transform: translateY(100vh); opacity: 0; }
+      to { transform: translateY(-10vh); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <h1>Hey <span class="name">Demi</span> 💗</h1>
+
+    <p>
+      I don’t know when it happened exactly,<br />
+      but somewhere between the little conversations<br />
+      and the quiet moments,<br />
+      you started to feel like home.
+    </p>
+
+    <p class="quote">
+      So I thought I’d ask you properly.
+    </p>
+
+    <div class="question">
+      Will you be my Valentine?
+    </div>
+
+    <button class="yes" onclick="sayYes()">Yes 💕</button>
+    <button class="alt" onclick="sayYes()">Of course</button>
+
+    <div class="message" id="message">
+      I’m really glad it’s you 🌸
+    </div>
+  </div>
+
+  <script>
+    function sayYes() {
+      document.getElementById("message").style.display = "block";
+      createHearts();
+    }
+
+    function createHearts() {
+      for (let i = 0; i < 20; i++) {
+        const heart = document.createElement("div");
+        heart.className = "heart";
+        heart.innerHTML = "💗";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.animationDuration = (Math.random() * 3 + 3) + "s";
+        document.body.appendChild(heart);
+
+        setTimeout(() => heart.remove(), 6000);
+      }
+    }
+  </script>
+
+</body>
+</html>
